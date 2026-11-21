@@ -1,0 +1,46 @@
+name: jump_and_learn
+description: A competitive 2.5D/3D jump-and-answer gamified e-learning mobile & web app.
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.12.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # --- Game Engine (Flame) ---
+  flame: ^1.38.2                # Core game loop, components, collision & animations
+  flame_audio: ^2.12.2          # Charge, jump, fall, correct/wrong sound effects
+
+  # --- Backend (Google Firebase) ---
+  firebase_core: ^5.2.0         # Core Firebase initialization
+  firebase_auth: ^7.1.0         # Student authentication (Email / Google)
+  cloud_firestore: ^7.2.0       # Topics, questions, user profiles & leaderboards
+  firebase_database: ^13.0.1    # Low-latency multiplayer room & race sync
+
+  # --- State Management & Routing ---
+  flutter_riverpod: ^3.5.0      # Cross-feature state management
+  go_router: ^18.1.4            # Declarative routing supporting Mobile & Web URLs
+
+  # --- UI, Animations & Utilities ---
+  cupertino_icons: ^1.0.8
+  google_fonts: ^6.2.1          # Consistent cross-platform typography
+  flutter_animate: ^4.5.2       # Flashcard flip, modal & result screen animations
+  intl: ^0.20.2                 # Date and duration formatting
+  uuid: ^4.5.1                  # Unique match and record IDs
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0         # Official Dart/Flutter static linting
+  flame_test: ^1.18.0           # Unit testing utilities for Flame components
+  mocktail: ^1.0.4              # Mocking Firebase & repositories in tests
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/audio/
+    - assets/images/
+    - assets/seed_data/
