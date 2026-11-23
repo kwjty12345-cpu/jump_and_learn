@@ -48,7 +48,9 @@ final appRouterProvider = Provider<GoRouter>((ref) {
             screenName: '主大厅 (学科 / 难度 / 模式)',
             nextButtonText: '模拟 Solo 模式 → 进入 3 分钟复习',
             onSimulateNext: () {
-              ref.read(gameSessionProvider.notifier).setConfig(
+              ref
+                  .read(gameSessionProvider.notifier)
+                  .setConfig(
                     discipline: 'Computer Science',
                     topicId: 'cs_algo_01',
                     difficulty: 'medium',
@@ -58,7 +60,9 @@ final appRouterProvider = Provider<GoRouter>((ref) {
             },
             secondaryButtonText: '模拟 Multiplayer 模式 → 进入联机房',
             onSecondaryAction: () {
-              ref.read(gameSessionProvider.notifier).setConfig(
+              ref
+                  .read(gameSessionProvider.notifier)
+                  .setConfig(
                     discipline: 'Computer Science',
                     topicId: 'cs_algo_01',
                     difficulty: 'medium',
@@ -96,7 +100,8 @@ final appRouterProvider = Provider<GoRouter>((ref) {
           return DevPlaceholderScreen(
             ownerLabel: '成员 3',
             screenName: '赛前 3 分钟复习 (闪卡 & 摘要)',
-            details: 'Topic: ${session.topicId} | 模式: ${session.isMultiplayer ? "Multiplayer" : "Solo"}',
+            details:
+                'Topic: ${session.topicId} | 模式: ${session.isMultiplayer ? "Multiplayer" : "Solo"}',
             nextButtonText: '模拟复习完毕 (用时 95 秒) → 开始跳一跳',
             onSimulateNext: () {
               ref.read(gameSessionProvider.notifier).setWarmupTime(95000);
@@ -116,7 +121,9 @@ final appRouterProvider = Provider<GoRouter>((ref) {
             difficulty: session.difficulty,
             roomCode: session.roomCode,
             onGameCompleted: (gameplayTimeMs) {
-              ref.read(gameSessionProvider.notifier).setGameplayTime(gameplayTimeMs);
+              ref
+                  .read(gameSessionProvider.notifier)
+                  .setGameplayTime(gameplayTimeMs);
               context.go(AppRoutes.result);
             },
           );
