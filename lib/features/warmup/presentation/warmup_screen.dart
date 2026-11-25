@@ -9,11 +9,16 @@ class WarmupScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Warm-Up Phase'),
       ),
-      body: const Center(
-        child: Text(
-          'Member 3 Warm-Up Screen',
-          style: TextStyle(fontSize: 24),
-        ),
+      body: Column(
+        children: [
+          Text('03:00'),
+          Text('Summary Notes'),
+          Text('Object Oriented Programming...'),
+          ElevatedButton(
+            onPressed: () {},
+            child: Text("I'm Ready"),
+          ),
+        ],
       ),
     );
   }
