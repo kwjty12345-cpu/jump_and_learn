@@ -3,6 +3,10 @@ import 'package:go_router/go_router.dart';
 import '../../game/game_page.dart';
 import '../providers/game_session_provider.dart';
 import '../widgets/dev_placeholder_screen.dart';
+import '../../features/auth/presentation/login_screen.dart';
+import '../../features/auth/presentation/register_screen.dart';
+import '../../features/auth/presentation/profile_screen.dart';
+import 'package:flutter/material.dart';
 
 // 队友交付 PR 并合入 dev 后，在这里逐个解除注释：
 // import '../../features/auth/presentation/login_screen.dart';
@@ -27,52 +31,66 @@ final appRouterProvider = Provider<GoRouter>((ref) {
     initialLocation: AppRoutes.login,
     routes: [
       // 1. 登录页 (成员 1)
-      GoRoute(
+       GoRoute(
         path: AppRoutes.login,
-        builder: (context, state) {
-          return DevPlaceholderScreen(
-            ownerLabel: '成员 1',
-            screenName: '登录 / 注册页',
-            nextButtonText: '模拟登录成功 → 进入主大厅',
-            onSimulateNext: () => context.go(AppRoutes.lobby),
-          );
-        },
+        builder: (context, state) => const LoginScreen(),
       ),
 
-      // 2. 主大厅与学科/难度选择 (成员 2)
+      GoRoute(
+        path: '/register',
+        builder: (context, state) => const RegisterScreen(),
+      ),
+
+      GoRoute(
+        path: '/profile',
+        builder: (context, state) => const ProfileScreen(),
+      ),
+
+            // 2. 主大厅与学科/难度选择 (成员 2)
       GoRoute(
         path: AppRoutes.lobby,
         builder: (context, state) {
-          return DevPlaceholderScreen(
-            ownerLabel: '成员 2',
-            screenName: '主大厅 (学科 / 难度 / 模式)',
-            nextButtonText: '模拟 Solo 模式 → 进入 3 分钟复习',
-            onSimulateNext: () {
-              ref
-                  .read(gameSessionProvider.notifier)
-                  .setConfig(
+          return Stack(
+            children: [
+              DevPlaceholderScreen(
+                ownerLabel: '成员 2',
+                screenName: '主大厅 (学科 / 难度 / 模式)',
+                nextButtonText: '模拟 Solo 模式 → 进入 3 分钟复习',
+                onSimulateNext: () {
+                  ref.read(gameSessionProvider.notifier).setConfig(
                     discipline: 'Computer Science',
                     topicId: 'cs_algo_01',
                     difficulty: 'medium',
                     isMultiplayer: false,
                   );
-              context.go(AppRoutes.warmup);
-            },
-            secondaryButtonText: '模拟 Multiplayer 模式 → 进入联机房',
-            onSecondaryAction: () {
-              ref
-                  .read(gameSessionProvider.notifier)
-                  .setConfig(
+                  context.go(AppRoutes.warmup);
+                },
+                secondaryButtonText: '模拟 Multiplayer 模式 → 进入联机房',
+                onSecondaryAction: () {
+                  ref.read(gameSessionProvider.notifier).setConfig(
                     discipline: 'Computer Science',
                     topicId: 'cs_algo_01',
                     difficulty: 'medium',
                     isMultiplayer: true,
                   );
-              context.go(AppRoutes.room);
-            },
+                  context.go(AppRoutes.room);
+                },
+              ),
+              Positioned(
+                right: 16,
+                bottom: 16,
+                child: SafeArea(
+                  child: FilledButton(
+                    onPressed: () => context.push('/profile'),
+                    child: const Text('My profile'),
+                  ),
+                ),
+              ),
+            ],
           );
         },
       ),
+
 
       // 3. 多人联机房间 (成员 6)
       GoRoute(
