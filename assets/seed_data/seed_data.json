@@ -1,0 +1,96 @@
+{
+  "topics": [
+    {
+      "id": "cs_data_structures_easy",
+      "discipline": "Computer Science",
+      "title": "Data Structures Basics",
+      "difficulty": "easy",
+      "summaryMarkdown": "# Data Structures Basics\n- **Stack**: LIFO (Last In, First Out)\n- **Queue**: FIFO (First In, First Out)\n- **Array**: Contiguous memory with O(1) index access",
+      "flashcards": [
+        { "front": "What principle does a Stack follow?", "back": "LIFO (Last In, First Out)" },
+        { "front": "What is the time complexity of array index access?", "back": "O(1)" }
+      ],
+      "questions": [
+        {
+          "id": "cs_q1",
+          "difficulty": "easy",
+          "prompt": "Which data structure follows the Last In, First Out (LIFO) principle?",
+          "options": ["Queue", "Stack", "Linked List", "Hash Map"],
+          "correctIndex": 1,
+          "explanation": "A Stack pushes and pops elements from the top, following LIFO."
+        },
+        {
+          "id": "cs_q2",
+          "difficulty": "easy",
+          "prompt": "What is the time complexity of accessing an element in an array by index?",
+          "options": ["O(1)", "O(n)", "O(log n)", "O(n^2)"],
+          "correctIndex": 0,
+          "explanation": "Arrays store elements in contiguous memory, allowing constant-time O(1) access."
+        }
+      ]
+    },
+    {
+      "id": "biz_marketing_medium",
+      "discipline": "Business",
+      "title": "Marketing Fundamentals",
+      "difficulty": "medium",
+      "summaryMarkdown": "# Marketing Fundamentals\n- **4 Ps**: Product, Price, Place, Promotion\n- **SWOT**: Strengths, Weaknesses, Opportunities, Threats",
+      "flashcards": [
+        { "front": "What are the 4 Ps of Marketing?", "back": "Product, Price, Place, Promotion" },
+        { "front": "What does SWOT stand for?", "back": "Strengths, Weaknesses, Opportunities, Threats" }
+      ],
+      "questions": [
+        {
+          "id": "biz_q1",
+          "difficulty": "medium",
+          "prompt": "Which of the following is NOT one of the traditional 4 Ps of marketing?",
+          "options": ["Product", "Price", "Profit", "Promotion"],
+          "correctIndex": 2,
+          "explanation": "The traditional 4 Ps are Product, Price, Place, and Promotion."
+        },
+        {
+          "id": "biz_q2",
+          "difficulty": "medium",
+          "prompt": "In a SWOT analysis, which two factors are considered external?",
+          "options": [
+            "Strengths and Weaknesses",
+            "Opportunities and Threats",
+            "Strengths and Opportunities",
+            "Weaknesses and Threats"
+          ],
+          "correctIndex": 1,
+          "explanation": "Opportunities and Threats come from the external market environment."
+        }
+      ]
+    },
+    {
+      "id": "eng_circuits_hard",
+      "discipline": "Engineering",
+      "title": "Basic Electrical Circuits",
+      "difficulty": "hard",
+      "summaryMarkdown": "# Electrical Circuits\n- **Ohm's Law**: V = I * R\n- **Series Resistors**: R_total = R1 + R2",
+      "flashcards": [
+        { "front": "State Ohm's Law.", "back": "V = I * R (Voltage = Current × Resistance)" },
+        { "front": "What is the SI unit of electrical resistance?", "back": "Ohm (Ω)" }
+      ],
+      "questions": [
+        {
+          "id": "eng_q1",
+          "difficulty": "hard",
+          "prompt": "According to Ohm's Law, if a 12V source is connected to a 4Ω resistor, what is the current?",
+          "options": ["2 A", "3 A", "4 A", "48 A"],
+          "correctIndex": 1,
+          "explanation": "Using I = V / R, 12V / 4Ω = 3 A."
+        },
+        {
+          "id": "eng_q2",
+          "difficulty": "hard",
+          "prompt": "Two 10Ω resistors are connected in parallel. What is their equivalent resistance?",
+          "options": ["5 Ω", "10 Ω", "20 Ω", "100 Ω"],
+          "correctIndex": 0,
+          "explanation": "For two equal resistors in parallel, R_eq = R / 2 = 10 / 2 = 5 Ω."
+        }
+      ]
+    }
+  ]
+}
